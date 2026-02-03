@@ -756,6 +756,11 @@ body {
     width: 100%;
     height: auto;
   }
+  
+  .about img {
+    bottom: 0;
+    margin-top: 20px;
+  }
 
   .ul-list {
     flex-wrap: wrap;
