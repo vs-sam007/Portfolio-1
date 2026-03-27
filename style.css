@@ -1,6 +1,11 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
 }
 
 header {
@@ -86,9 +91,10 @@ header {
 }
 
 .info-home h1 {
-  font-size: 70px;
-  font-family: "Raleway", sans-serif;
+  font-size: 64px;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 20px;
+  font-weight: 800;
 }
 
 .info-home h3 {
@@ -99,8 +105,7 @@ header {
 
 .info-p {
   color: #222;
-  
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
   padding-bottom: 20px;
 }
 
@@ -192,17 +197,23 @@ hr {
     color: rgb(50, 50, 50);
 }
 
-.about h1{
-    font-family: "Open Sans", sans-serif;
+.about h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
 }
 
 .title{
     padding-bottom: 30  px;
 }
 
-.about .hrrr{
+.about .hrrr {
     width: 100%;
     padding-bottom: 35px;
+}
+
+.about .hrrr hr {
+    margin: 0;
+    width: 40%;
 }
 
 .info-about{
@@ -228,21 +239,25 @@ hr {
     padding-bottom: 30px;
 }
 
-.card{
+.card {
     display: flex;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
-.c1{
+.c1 {
     display: flex;
     align-content: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     border: 2px solid black;
-    padding: 5px 20px;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 12px;
+    flex: 1;
+    min-width: 250px;
     transition: all 0.3s ease;
+    background: #fff;
 }
 
 .c1 h3{
@@ -273,9 +288,20 @@ hr {
     color: rgb(50, 50, 50); 
 }
 
-.project h1{
-    font-family: "Open Sans", sans-serif;
+.project h4,
+.services h4,
+.contact h4,
+.about h5 {
+    font-family: "Montserrat", sans-serif;
+    color: #474af0;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.project h1 {
+    font-family: "Montserrat", sans-serif;
     padding-bottom: 10px;
+    font-weight: 700;
 }
 
 .project hr{
@@ -349,8 +375,8 @@ hr {
 
 .btns {
   display: flex;
-  justify-content: relative;
-  gap: 5px;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .btn {
@@ -387,8 +413,9 @@ hr {
 }
 
 .services h1{
-    font-family: "Open Sans", sans-serif;
+    font-family: "Montserrat", sans-serif;
     padding-bottom: 10px;
+    font-weight: 700;
 }
 
 .services hr{
@@ -474,8 +501,9 @@ hr {
 }
 
 .contact h1{
-    font-family: "Open Sans", sans-serif;
+    font-family: "Montserrat", sans-serif;
     padding-bottom: 10px;
+    font-weight: 700;
 }
 
 .contact hr{
@@ -679,7 +707,8 @@ hr {
 body {
   margin:0;
   padding:0;
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.6;
 }
 
 #loading-screen {
@@ -796,7 +825,7 @@ body {
     height: auto;
   }
 
-  .btn-home1, .btn-home2, .btn, .btn-send {
+  .btn-home1, .btn-home2, .btn-send {
     width: 100%;
     text-align: center;
   }
