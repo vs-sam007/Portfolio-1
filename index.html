@@ -11,12 +11,16 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:wght@300..800&family=Playfair+Display:wght@400..900&family=Unbounded:wght@200..900&display=swap"
     rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+  <!-- Custom Cursor Elements -->
+  <div class="cursor-dot" data-cursor-dot></div>
+  <div class="cursor-outline" data-cursor-outline></div>
   <div id="loading-screen">
     <div class="loading-content">
       <i class="fa-solid fa-laptop-code fa-5x main-icon hidden"></i>
@@ -67,11 +71,11 @@
     <div class="home-container">
       <div class="home-section">
         <div class="info-home">
-          <h1>Hi, I'm Samradh</h1>
+          <h1 class="gradient-text">Hi, I'm Samradh</h1>
           <h3>Frontend Developer</h3>
           <div class="info-p">
             <p>I create beautiful, functional, and user-centered digital experiences. With </p>
-            <p>2+ years of experience in Web Development, I bring ideas to life through </p>
+            <p>3+ years of experience in Web Development, I bring ideas to life through </p>
             <p>clean code and thoughtful design</p>
           </div>
           <div class="info-p2">
@@ -95,8 +99,8 @@
                     class="fa-brands fa-github"></i></a></li>
               <li><a href="https://www.linkedin.com/in/samradh-vikram-srivastava-485b0631b" target="_blank"
                   rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a></li>
-              <li><a href="https://www.instagram.com/samradh_srivastava015" target="_blank"
-                  rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a href="https://www.instagram.com/samradh_srivastava015" target="_blank" rel="noopener noreferrer"><i
+                    class="fa-brands fa-instagram"></i></a></li>
             </ul>
           </div>
         </div>
@@ -145,7 +149,7 @@
           </div>
         </div>
       </div>
-      <img src="images/img.png" alt="" class="pfp">
+      <img src="images/nw.png" alt="Professional Portrait" class="pfp">
     </div>
   </section>
   <section class="project" id="project">
@@ -383,6 +387,8 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
   <script src="main.js"></script>
 </body>
 

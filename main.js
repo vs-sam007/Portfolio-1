@@ -38,19 +38,24 @@ window.addEventListener('scroll', () => {
     backToTop.style.display = "none";
   }
 
-  revealElements.forEach(el => {
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
-    const revealPoint = 150;
-
-    if(elementTop < windowHeight - revealPoint){
-      el.classList.add('active-reveal');
-    }
-  });
 });
 
-const revealElements = document.querySelectorAll('.home-container, .about-container, .projects-container, .services-container, .contact-content');
-revealElements.forEach(el => el.classList.add('reveal'));
+// Configure elements for AOS before initialization
+document.querySelectorAll('.home-container').forEach(el => { el.setAttribute('data-aos', 'fade-in'); el.setAttribute('data-aos-duration', '1500'); });
+document.querySelectorAll('.about-container').forEach(el => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-duration', '1200'); });
+document.querySelectorAll('.project-card').forEach((el, index) => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', (index * 100).toString()); });
+document.querySelectorAll('.service-card').forEach((el, index) => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', (index * 100).toString()); });
+document.querySelectorAll('.contact-info').forEach(el => { el.setAttribute('data-aos', 'fade-right'); el.setAttribute('data-aos-duration', '1000'); });
+document.querySelectorAll('.contact-form').forEach(el => { el.setAttribute('data-aos', 'fade-left'); el.setAttribute('data-aos-duration', '1000'); });
+document.querySelectorAll('.c1').forEach((el, index) => { el.setAttribute('data-aos', 'zoom-in-up'); el.setAttribute('data-aos-delay', (index * 150).toString()); });
+document.querySelectorAll('h1').forEach(el => el.setAttribute('data-aos', 'fade-up'));
+document.querySelectorAll('h4, h5').forEach(el => el.setAttribute('data-aos', 'fade-right'));
+
+// Initialize AOS (Animate on Scroll)
+AOS.init({
+  once: true, 
+  offset: 100,
+});
 
 const backToTop = document.createElement('div');
 backToTop.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
@@ -81,10 +86,34 @@ backToTop.addEventListener('click', () => {
 backToTop.addEventListener('mouseover', () => backToTop.style.transform = 'scale(1.2)');
 backToTop.addEventListener('mouseout', () => backToTop.style.transform = 'scale(1)');
 
-const cards = document.querySelectorAll('.project-card, .c1, .service-card');
-cards.forEach(card => {
-  card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-8px) scale(1.05)');
-  card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0) scale(1)');
+// Initialize Vanilla Tilt
+VanillaTilt.init(document.querySelectorAll(".project-card, .service-card, .c1"), {
+    max: 10,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.2,
+});
+
+// Custom Cursor Logic
+const cursorDot = document.querySelector("[data-cursor-dot]");
+const cursorOutline = document.querySelector("[data-cursor-outline]");
+
+window.addEventListener("mousemove", (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+    }, { duration: 500, fill: "forwards" });
+});
+
+document.querySelectorAll("a, button, .project-card, .service-card").forEach(el => {
+    el.addEventListener("mouseenter", () => cursorOutline.style.transform = "translate(-50%, -50%) scale(1.5)");
+    el.addEventListener("mouseleave", () => cursorOutline.style.transform = "translate(-50%, -50%) scale(1)");
 });
 
 const typingElement = document.querySelector('.info-home h3'); 
