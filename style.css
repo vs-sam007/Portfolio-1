@@ -499,6 +499,8 @@ hr {
   opacity: 0;
   transition: var(--transition);
   background: linear-gradient(135deg, rgba(71,74,240,0.04) 0%, rgba(233,30,99,0.03) 100%);
+  pointer-events: none;  /* Never block clicks */
+  z-index: 0;
 }
 
 .project-card:hover {
@@ -557,12 +559,14 @@ hr {
   transform: translateY(-2px);
 }
 
-/* CTA btns inside cards */
+/* CTA btns inside cards — always above any pseudo-element overlay */
 .btns {
   display: flex;
   justify-content: flex-start;
   gap: 10px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
 .btn {
@@ -578,6 +582,8 @@ hr {
   align-items: center;
   gap: 6px;
   box-shadow: 0 4px 16px rgba(71,74,240,0.3);
+  position: relative;
+  z-index: 2;
   letter-spacing: 0.02em;
 }
 
@@ -1341,11 +1347,17 @@ a, button, i, input, textarea { cursor: none; }
 /* Case Study styling updates */
 .case-study-card {
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* was 'hidden' — was clipping stacked content */
   border: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+/* All direct children sit above the ::after overlay */
+.case-study-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .case-study-tag {
@@ -1360,6 +1372,8 @@ a, button, i, input, textarea { cursor: none; }
   padding: 4px 10px;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3);
+  z-index: 3; /* above everything inside the card */
+  pointer-events: none; /* purely decorative */
 }
 
 .case-study-meta {
