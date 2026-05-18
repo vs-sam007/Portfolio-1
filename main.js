@@ -204,3 +204,83 @@ const metricObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.metric-num').forEach(num => {
     metricObserver.observe(num);
 });
+
+// ---- REDIRECTION MODAL LOGIC ----
+const redirectModal = document.getElementById('redirect-modal');
+const modalClose = document.getElementById('modal-close');
+const optWhatsapp = document.getElementById('modal-opt-whatsapp');
+const optLinkedin = document.getElementById('modal-opt-linkedin');
+const contactForm = document.getElementById('contact-form');
+const modalDescription = document.getElementById('modal-description');
+
+let isFormSubmission = false;
+let formData = { name: '', email: '', message: '' };
+
+// Intercept contact form submission
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    isFormSubmission = true;
+    formData.name = contactForm.elements['user_name'].value;
+    formData.email = contactForm.elements['user_email'].value;
+    formData.message = contactForm.elements['message'].value;
+    
+    modalDescription.innerText = "Would you like to send this message to Samradh via WhatsApp or connect on LinkedIn?";
+    redirectModal.classList.add('active');
+  });
+}
+
+// Intercept "Book a Call" or "Connect" buttons
+const bookCallBtn = document.querySelector('.btn-home2');
+if (bookCallBtn) {
+  bookCallBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    isFormSubmission = false;
+    modalDescription.innerText = "Would you like to connect with Samradh via WhatsApp or LinkedIn to schedule your call?";
+    redirectModal.classList.add('active');
+  });
+}
+
+// Close modal triggers
+if (modalClose) {
+  modalClose.addEventListener('click', () => {
+    redirectModal.classList.remove('active');
+  });
+}
+
+if (redirectModal) {
+  redirectModal.addEventListener('click', (e) => {
+    if (e.target === redirectModal) {
+      redirectModal.classList.remove('active');
+    }
+  });
+}
+
+// Handle Platform Redirect Actions
+if (optWhatsapp) {
+  optWhatsapp.addEventListener('click', () => {
+    const baseNum = "9454201939"; // Samradh's WhatsApp number
+    let url = '';
+    
+    if (isFormSubmission) {
+      const text = `Hi Samradh, my name is ${formData.name} (${formData.email}). ${formData.message}`;
+      url = `https://wa.me/${baseNum}?text=${encodeURIComponent(text)}`;
+    } else {
+      url = `https://wa.me/${baseNum}?text=${encodeURIComponent("Hi Samradh, I saw your portfolio and would like to connect to schedule a call!")}`;
+    }
+    
+    window.open(url, '_blank');
+    redirectModal.classList.remove('active');
+    if (isFormSubmission && contactForm) contactForm.reset();
+  });
+}
+
+if (optLinkedin) {
+  optLinkedin.addEventListener('click', () => {
+    const linkedinUrl = "https://www.linkedin.com/in/samradh-vikram-srivastava-485b0631b";
+    window.open(linkedinUrl, '_blank');
+    redirectModal.classList.remove('active');
+    if (isFormSubmission && contactForm) contactForm.reset();
+  });
+}
+
