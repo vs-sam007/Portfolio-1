@@ -87,7 +87,7 @@ backToTop.addEventListener('mouseover', () => backToTop.style.transform = 'scale
 backToTop.addEventListener('mouseout', () => backToTop.style.transform = 'scale(1)');
 
 // Initialize Vanilla Tilt
-VanillaTilt.init(document.querySelectorAll(".project-card, .service-card, .c1"), {
+VanillaTilt.init(document.querySelectorAll(".project-card, .service-card, .c1, .tech-card, .seo-card, .metric-card, .timeline-content, .exploring-card"), {
     max: 10,
     speed: 400,
     glare: true,
@@ -111,13 +111,13 @@ window.addEventListener("mousemove", (e) => {
     }, { duration: 500, fill: "forwards" });
 });
 
-document.querySelectorAll("a, button, .project-card, .service-card").forEach(el => {
+document.querySelectorAll("a, button, .project-card, .service-card, .c1, .tech-card, .seo-card, .metric-card, .timeline-content, .exploring-card").forEach(el => {
     el.addEventListener("mouseenter", () => cursorOutline.style.transform = "translate(-50%, -50%) scale(1.5)");
     el.addEventListener("mouseleave", () => cursorOutline.style.transform = "translate(-50%, -50%) scale(1)");
 });
 
 const typingElement = document.querySelector('.info-home h3'); 
-const words = ["Frontend Developer", "UI/UX Designer", "Web Enthusiast", "React Developer"];
+const words = ["Full Stack Developer", "SEO / AEO / GEO Specialist", "AI Workflow Architect", "Growth Engineer"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -173,4 +173,34 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => loadingScreen.style.display='none', 500);
     mainPage.classList.add("visible");
   }, 4000);
+});
+
+// Metrics Animation
+const metricObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            const target = entry.target;
+            const targetVal = parseInt(target.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = targetVal / (duration / 20);
+            let currentVal = 0;
+            
+            const updateCounter = () => {
+                currentVal += increment;
+                if(currentVal < targetVal) {
+                    target.innerText = Math.ceil(currentVal);
+                    setTimeout(updateCounter, 20);
+                } else {
+                    target.innerText = targetVal;
+                }
+            };
+            
+            updateCounter();
+            metricObserver.unobserve(target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.metric-num').forEach(num => {
+    metricObserver.observe(num);
 });
