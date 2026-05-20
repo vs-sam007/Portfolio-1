@@ -1008,7 +1008,7 @@ a, button, i, input, textarea { cursor: none; }
   top: 0; left: 0;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  z-index: 10000;
+  z-index: 100000;
   box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent-glow);
   transition: width 0.2s, height 0.2s, background 0.2s;
 }
@@ -1022,7 +1022,7 @@ a, button, i, input, textarea { cursor: none; }
   top: 0; left: 0;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99999;
   transition: transform 0.25s ease, width 0.25s, height 0.25s, border-color 0.25s;
   backdrop-filter: blur(2px);
 }
