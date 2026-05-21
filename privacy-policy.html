@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Samradh Vikram Srivastava</title>
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .legal-container {
+      max-width: 800px;
+      margin: 160px auto 60px auto;
+      padding: 40px;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      color: var(--text-dark);
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.8;
+    }
+    .legal-container h1 { font-family: 'Montserrat', sans-serif; margin-bottom: 20px; color: var(--accent); font-weight: 800; }
+    .legal-container h2 { font-family: 'Montserrat', sans-serif; margin-top: 30px; margin-bottom: 15px; font-size: 1.5rem; color: var(--accent); font-weight: 700; }
+    .legal-container p, .legal-container li { margin-bottom: 15px; color: var(--text-muted); }
+    .legal-container a { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+    .legal-container strong { color: var(--text-dark); }
+  </style>
+</head>
+<body>
+  <!-- Custom Cursor Elements -->
+  <div class="cursor-dot" data-cursor-dot></div>
+  <div class="cursor-outline" data-cursor-outline></div>
+
+  <header class="header-list">
+    <div class="div-list">
+      <ul class="ul-list">
+        <li><i class="fa-regular fa-house"></i><a href="index.html">Home</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="legal-container">
+      <h1>Privacy Policy</h1>
+      <p>Last updated: May 21, 2026</p>
+      
+      <h2>1. Introduction</h2>
+      <p>Welcome to the portfolio of Samradh Vikram Srivastava ("we", "our", or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights.</p>
+      
+      <h2>2. Data We Collect</h2>
+      <p>We only collect data that you voluntarily provide to us when you fill out the contact form on our website. The data we collect includes:</p>
+      <ul>
+        <li><strong>Name:</strong> To know how to address you.</li>
+        <li><strong>Email Address:</strong> To reply to your inquiries.</li>
+        <li><strong>Message Content:</strong> The details of your inquiry or project request.</li>
+      </ul>
+      
+      <h2>3. How We Use Your Data</h2>
+      <p>We use the information collected exclusively to respond to your queries, discuss potential freelance projects, and facilitate communication between us. We do <strong>not</strong> sell, rent, or trade your personal information to third parties.</p>
+
+      <h2>4. Data Safety & Security</h2>
+      <p>We take data security seriously. The information you submit via our contact form is securely transmitted and stored. We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way.</p>
+
+      <h2>5. Cookies and Analytics</h2>
+      <p>We use Google Analytics to monitor and analyze web traffic and user behavior on our website to improve our services and user experience. Google Analytics may use cookies to collect information anonymously. You can opt-out of Google Analytics by adjusting your browser settings.</p>
+
+      <h2>6. Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy or our privacy practices, please contact us at <a href="mailto:sam.srivastava015@gmail.com">sam.srivastava015@gmail.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <h2 class="footer-logo">Samradh Vikram Srivastava</h2>
+      <p class="footer-copy">&copy; 2026 by SAM. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const cursorDot = document.querySelector("[data-cursor-dot]");
+    const cursorOutline = document.querySelector("[data-cursor-outline]");
+    window.addEventListener("mousemove", (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        if(cursorDot) {
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+        }
+        if(cursorOutline) {
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        }
+    });
+    document.querySelectorAll("a, button").forEach(el => {
+        el.addEventListener("mouseenter", () => { if(cursorOutline) cursorOutline.style.transform = "translate(-50%, -50%) scale(1.5)"; });
+        el.addEventListener("mouseleave", () => { if(cursorOutline) cursorOutline.style.transform = "translate(-50%, -50%) scale(1)"; });
+    });
+  </script>
+</body>
+</html>

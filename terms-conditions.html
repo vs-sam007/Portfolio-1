@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms & Conditions | Samradh Vikram Srivastava</title>
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .legal-container {
+      max-width: 800px;
+      margin: 160px auto 60px auto;
+      padding: 40px;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      color: var(--text-dark);
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.8;
+    }
+    .legal-container h1 { font-family: 'Montserrat', sans-serif; margin-bottom: 20px; color: var(--accent); font-weight: 800; }
+    .legal-container h2 { font-family: 'Montserrat', sans-serif; margin-top: 30px; margin-bottom: 15px; font-size: 1.5rem; color: var(--accent); font-weight: 700; }
+    .legal-container p, .legal-container li { margin-bottom: 15px; color: var(--text-muted); }
+    .legal-container a { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+    .legal-container strong { color: var(--text-dark); }
+  </style>
+</head>
+<body>
+  <!-- Custom Cursor Elements -->
+  <div class="cursor-dot" data-cursor-dot></div>
+  <div class="cursor-outline" data-cursor-outline></div>
+
+  <header class="header-list">
+    <div class="div-list">
+      <ul class="ul-list">
+        <li><i class="fa-regular fa-house"></i><a href="index.html">Home</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="legal-container">
+      <h1>Terms & Conditions</h1>
+      <p>Last updated: May 21, 2026</p>
+      
+      <h2>1. Agreement to Terms</h2>
+      <p>By accessing this website, you agree to be bound by these Terms and Conditions and agree that you are responsible for compliance with any applicable local laws.</p>
+      
+      <h2>2. Intellectual Property Rights</h2>
+      <p>Unless otherwise stated, Samradh Vikram Srivastava and/or its licensors own the intellectual property rights for all material on this website. All intellectual property rights are reserved. You may access this from the website for your own personal use subjected to restrictions set in these terms and conditions.</p>
+      
+      <h2>3. User Data & Contact Form</h2>
+      <p>When you use our contact form, you agree to provide accurate and current information. The data collected (Name, Email, Message) is used strictly for communication and inquiry purposes. We assure you that your data is handled securely and in accordance with our Privacy Policy.</p>
+
+      <h2>4. Limitation of Liability</h2>
+      <p>In no event shall Samradh Vikram Srivastava be liable for any damages arising out of the use or inability to use the materials on this website, even if notified orally or in writing of the possibility of such damage.</p>
+
+      <h2>5. Governing Law</h2>
+      <p>These terms and conditions are governed by and construed in accordance with the laws of India and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <h2 class="footer-logo">Samradh Vikram Srivastava</h2>
+      <p class="footer-copy">&copy; 2026 by SAM. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const cursorDot = document.querySelector("[data-cursor-dot]");
+    const cursorOutline = document.querySelector("[data-cursor-outline]");
+    window.addEventListener("mousemove", (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        if(cursorDot) {
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+        }
+        if(cursorOutline) {
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        }
+    });
+    document.querySelectorAll("a, button").forEach(el => {
+        el.addEventListener("mouseenter", () => { if(cursorOutline) cursorOutline.style.transform = "translate(-50%, -50%) scale(1.5)"; });
+        el.addEventListener("mouseleave", () => { if(cursorOutline) cursorOutline.style.transform = "translate(-50%, -50%) scale(1)"; });
+    });
+  </script>
+</body>
+</html>

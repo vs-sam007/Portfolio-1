@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://samradh-srivastava.netlify.app/sitemap.xml
