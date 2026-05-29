@@ -996,8 +996,10 @@ body {
 }
 
 /* ---- CUSTOM CURSOR (premium neon glow) ---- */
-body { cursor: none; }
-a, button, i, input, textarea { cursor: none; }
+@media (min-width: 1025px) {
+  body { cursor: none; }
+  a, button, i, input, textarea { cursor: none; }
+}
 
 .cursor-dot {
   width: 10px;
@@ -1025,6 +1027,12 @@ a, button, i, input, textarea { cursor: none; }
   z-index: 99999;
   transition: transform 0.25s ease, width 0.25s, height 0.25s, border-color 0.25s;
   backdrop-filter: blur(2px);
+}
+
+@media (max-width: 1024px) {
+  .cursor-dot, .cursor-outline {
+    display: none !important;
+  }
 }
 
 /* ---- GRADIENT TEXT ---- */
