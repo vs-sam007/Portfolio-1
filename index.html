@@ -23,12 +23,12 @@
   <meta property="og:image" content="https://samradh-srivastava.netlify.app/images/nw.png">
 
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://samradh-srivastava.netlify.app/">
-  <meta property="twitter:title" content="Samradh Vikram Srivastava | Full Stack Developer & Growth Architect">
-  <meta property="twitter:description"
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://samradh-srivastava.netlify.app/">
+  <meta name="twitter:title" content="Samradh Vikram Srivastava | Full Stack Developer &amp; Growth Architect">
+  <meta name="twitter:description"
     content="Portfolio of Samradh Vikram Srivastava, a Full Stack Developer focusing on scalable web apps, SEO, AEO, and GEO optimization. Based in India.">
-  <meta property="twitter:image" content="https://samradh-srivastava.netlify.app/images/nw.png">
+  <meta name="twitter:image" content="https://samradh-srivastava.netlify.app/images/nw.png">
 
   <!-- JSON-LD Schema (Person & WebSite) -->
   <script type="application/ld+json">
@@ -83,7 +83,7 @@
   }
   </script>
 
-  <!-- JSON-LD FAQ Schema -->
+  <!-- JSON-LD FAQ Schema (AEO-enhanced with speakable) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -112,6 +112,62 @@
           "@type": "Answer",
           "text": "You can contact Samradh via email at sam.srivastava015@gmail.com, WhatsApp at +91 9454201939, or through his LinkedIn profile."
         }
+      }
+    ],
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".info-home h1", ".info-home h3", ".info-p", ".hero-checklist"]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD SiteNavigationElement Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    "name": "Main Navigation",
+    "url": "https://samradh-srivastava.netlify.app/",
+    "hasPart": [
+      {
+        "@type": "WebPage",
+        "name": "Home",
+        "url": "https://samradh-srivastava.netlify.app/#home"
+      },
+      {
+        "@type": "WebPage",
+        "name": "About",
+        "url": "https://samradh-srivastava.netlify.app/#about"
+      },
+      {
+        "@type": "WebPage",
+        "name": "Projects",
+        "url": "https://samradh-srivastava.netlify.app/#project"
+      },
+      {
+        "@type": "WebPage",
+        "name": "What I Do",
+        "url": "https://samradh-srivastava.netlify.app/#what-i-bring"
+      },
+      {
+        "@type": "WebPage",
+        "name": "Contact",
+        "url": "https://samradh-srivastava.netlify.app/#contact"
+      },
+      {
+        "@type": "WebPage",
+        "name": "Privacy Policy",
+        "url": "https://samradh-srivastava.netlify.app/privacy-policy.html"
+      },
+      {
+        "@type": "WebPage",
+        "name": "Terms & Conditions",
+        "url": "https://samradh-srivastava.netlify.app/terms-conditions.html"
+      },
+      {
+        "@type": "WebPage",
+        "name": "Disclaimer",
+        "url": "https://samradh-srivastava.netlify.app/disclaimer.html"
       }
     ]
   }
@@ -938,7 +994,7 @@
         <a href="https://wa.me/9454201939" target="_blank" aria-label="WhatsApp"><i
             class="fa-brands fa-whatsapp"></i></a>
       </div>
-      <p class="footer-copy">&copy; 2024 by SAM. All Rights Reserved.</p>
+      <p class="footer-copy">&copy; 2026 by SAM. All Rights Reserved.</p>
     </div>
   </footer>
 

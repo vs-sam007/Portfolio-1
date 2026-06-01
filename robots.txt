@@ -1,4 +1,40 @@
+# https://samradh-srivastava.netlify.app
+
+# Global crawl rules
 User-agent: *
 Allow: /
+Disallow: /favicon/
 
+# Sitemap location
 Sitemap: https://samradh-srivastava.netlify.app/sitemap.xml
+
+# Host directive
+Host: https://samradh-srivastava.netlify.app
+
+# AI Search Crawlers — Allowed for GEO optimization
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
