@@ -1,0 +1,14 @@
+{
+  "name": "portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "High-Performance Interactive Creative Technologist Portfolio",
+  "scripts": {
+    "dev": "npx -y serve . -l 3000",
+    "start": "npx -y serve . -l 3000",
+    "serve": "npx -y serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

@@ -228,7 +228,8 @@
   </div>
   <header class="header-list">
     <div class="div-list ">
-      <ul class="ul-list">
+      <ul class="ul-list" id="nav-tabs">
+        <div class="nav-sliding-pill" id="nav-sliding-pill"></div>
         <li class="active">
           <i class="fa-regular fa-house"></i>
           <a href="#home">Home</a>
@@ -255,17 +256,17 @@
   <main>
     <!-- home -->
     <section class="home" id="home">
-      <p class="home-p">
+      <p class="home-p text-shimmer-wave">
         <span class="home-s">● </span>Available for freelance & contract work
       </p>
       <div class="home-container">
         <div class="home-section">
           <div class="info-home">
             <h1 class="gradient-text">Hi, I'm Samradh Srivastava</h1>
-            <h3 id="typing-hero">Full Stack Developer</h3>
+            <h3 id="typing-hero" class="text-scramble-hero"><span class="scramble-text">Full Stack Developer</span><span class="scramble-cursor">_</span></h3>
             <div class="info-p" style="max-width: 650px;">
-              <p><strong>Full Stack Developer | SEO • AEO • GEO Specialist</strong></p>
-              <p style="margin-top: 10px; font-size: 1.1rem; line-height: 1.6; color: #444;">
+              <p><strong style="color: var(--accent-cyan);">Full Stack Developer | SEO • AEO • GEO Specialist</strong></p>
+              <p style="margin-top: 10px; font-size: 1.1rem; line-height: 1.6; color: var(--text-muted);">
                 I'm Samradh Vikram Srivastava (Samradh), building scalable web apps, AI-powered workflows, and
                 search-optimized digital experiences that rank,
                 convert, and grow.
@@ -285,17 +286,19 @@
               <p><i class="fa-solid fa-briefcase"></i> Available Now</p>
             </div>
             <div class="btnn">
-              <a href="#project">
-                <button class="btn-home1">
-                  <i class="fa-solid fa-folder-open"></i> View Projects
+              <div class="glow-effect-wrapper">
+                <div class="glow-effect"></div>
+                <a href="#project" class="magnetic-btn-wrap">
+                  <button class="btn-home1 magnetic" data-magnetic>
+                    <i class="fa-solid fa-folder-open"></i> <span>View Projects</span>
+                  </button>
+                </a>
+              </div>
+              <a href="#contact" class="magnetic-btn-wrap">
+                <button class="btn-home2 magnetic" data-magnetic>
+                  <i class="fa-solid fa-calendar-days"></i> <span>Book a Call</span>
                 </button>
               </a>
-              <a href="#contact">
-                <button class="btn-home2">
-                  <i class="fa-solid fa-calendar-days"></i> Book a Call
-                </button>
-              </a>
-
             </div>
             <div class="hhr">
               <hr>
@@ -332,14 +335,14 @@
         <div class="info-about">
           <div class="about-info">
             <p class="about-text"
-              style="font-size: 1.1rem; line-height: 1.8; font-weight: normal; color: #333; max-width: 800px; margin-bottom: 20px;">
+              style="font-size: 1.15rem; line-height: 1.85; font-weight: 400; color: #e2e8f0; max-width: 800px; margin-bottom: 20px;">
               I'm a Full Stack Developer focused on building high-performance digital products and growth-driven
               experiences. Beyond development, I work on SEO, AEO (Answer Engine Optimization), and GEO (Generative
               Engine
               Optimization) strategies to help products get discovered across search engines and AI platforms.
             </p>
             <p class="about-text"
-              style="font-size: 1.1rem; line-height: 1.8; font-weight: normal; color: #333; max-width: 800px; margin-bottom: 30px;">
+              style="font-size: 1.15rem; line-height: 1.85; font-weight: 400; color: #e2e8f0; max-width: 800px; margin-bottom: 30px;">
               I build modern applications with API integrations, automation workflows, and scalable backend systems.
               Recently, I’ve worked with services like Resend for email workflows and third-party APIs to create
               seamless
@@ -374,8 +377,67 @@
       <hr>
       <div class="info-pro">
         <p class="about-text"
-          style="font-size: 1.1rem; text-align: center; max-width: 800px; margin: 10px auto 0 auto;">
+          style="font-size: 1.15rem; font-weight: 500; color: #cbd5e1; text-align: center; max-width: 800px; margin: 10px auto 0 auto;">
           My core capabilities and focus areas when building and scaling digital products.</p>
+      </div>
+
+      <!-- Interactive Transition Panel (Motion-Primitives TransitionPanel) -->
+      <div class="transition-panel-wrapper" data-aos="fade-up">
+        <div class="transition-panel-card">
+          <div class="panel-header-badge">
+            <span class="pulse-indicator"></span> <span>INTERACTIVE CAPABILITY SPOTLIGHT</span>
+          </div>
+          <div class="transition-panel-content" id="transition-panel-content">
+            <div class="transition-slide active" data-slide="0">
+              <div class="slide-icon-chip"><i class="fa-solid fa-code"></i></div>
+              <h3>Scalable Web Engineering</h3>
+              <p>Architecting end-to-end web applications with React, Next.js, and Node.js that handle high concurrent traffic with sub-second load times and fluid client transitions.</p>
+              <div class="slide-tags">
+                <span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span>
+              </div>
+            </div>
+            <div class="transition-slide" data-slide="1">
+              <div class="slide-icon-chip"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+              <h3>Search & AI Answer Optimization (SEO / AEO / GEO)</h3>
+              <p>Designing digital infrastructure with structured JSON-LD data, LLM intent mapping, and semantic content hierarchies so your business ranks at the top of Google and ChatGPT/Perplexity.</p>
+              <div class="slide-tags">
+                <span>Schema.org</span><span>LLM Discovery</span><span>Core Web Vitals</span><span>AEO</span>
+              </div>
+            </div>
+            <div class="transition-slide" data-slide="2">
+              <div class="slide-icon-chip"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+              <h3>API & Automation Workflows</h3>
+              <p>Seamlessly integrating complex third-party REST/GraphQL APIs, secure payment gateways, webhooks, and automated email pipelines (Resend) for zero-maintenance operations.</p>
+              <div class="slide-tags">
+                <span>REST APIs</span><span>Resend</span><span>Webhooks</span><span>OAuth</span>
+              </div>
+            </div>
+            <div class="transition-slide" data-slide="3">
+              <div class="slide-icon-chip"><i class="fa-solid fa-layer-group"></i></div>
+              <h3>Design Systems & Immersive UI</h3>
+              <p>Crafting design systems that unite brand identity across every screen with glassmorphism, micro-interactions, spring physics, and accessible typography.</p>
+              <div class="slide-tags">
+                <span>UI/UX</span><span>Figma</span><span>Micro-interactions</span><span>Design Tokens</span>
+              </div>
+            </div>
+          </div>
+          <div class="transition-panel-controls">
+            <div class="panel-dots" id="panel-dots">
+              <button class="dot-btn active" data-index="0" aria-label="Feature 1"></button>
+              <button class="dot-btn" data-index="1" aria-label="Feature 2"></button>
+              <button class="dot-btn" data-index="2" aria-label="Feature 3"></button>
+              <button class="dot-btn" data-index="3" aria-label="Feature 4"></button>
+            </div>
+            <div class="panel-btns">
+              <button type="button" class="panel-btn" id="panel-prev-btn" aria-label="Previous Feature">
+                <i class="fa-solid fa-arrow-left"></i> <span>Previous</span>
+              </button>
+              <button type="button" class="panel-btn panel-btn-next" id="panel-next-btn" aria-label="Next Feature">
+                <span>Next</span> <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="services-container" style="margin-top: 30px;">
@@ -437,6 +499,40 @@
         <h4>TOOLS & ECOSYSTEM</h4>
         <h1>My Technical Stack</h1>
         <hr class="tech-hr">
+
+        <!-- Motion-Primitives Infinite Slider Marquee -->
+        <div class="infinite-slider-container" data-aos="fade-in">
+          <div class="infinite-slider-label"><i class="fa-solid fa-infinity"></i> CORE TECHNOLOGIES AT SCALE</div>
+          <div class="infinite-slider-track-wrapper">
+            <div class="infinite-slider-track" id="slider-track-1">
+              <div class="slider-badge"><i class="fa-brands fa-react" style="color: #61DAFB;"></i> React.js</div>
+              <div class="slider-badge"><i class="fa-brands fa-node-js" style="color: #68A063;"></i> Node.js</div>
+              <div class="slider-badge"><i class="fa-brands fa-js" style="color: #F7DF1E;"></i> JavaScript ES6+</div>
+              <div class="slider-badge"><i class="fa-solid fa-bolt" style="color: #38bdf8;"></i> Next.js</div>
+              <div class="slider-badge"><i class="fa-solid fa-database" style="color: #47A248;"></i> MongoDB</div>
+              <div class="slider-badge"><i class="fa-brands fa-python" style="color: #3776AB;"></i> Python</div>
+              <div class="slider-badge"><i class="fa-brands fa-docker" style="color: #2496ED;"></i> Docker</div>
+              <div class="slider-badge"><i class="fa-solid fa-server" style="color: #818cf8;"></i> Express.js</div>
+              <div class="slider-badge"><i class="fa-brands fa-git-alt" style="color: #F05032;"></i> Git & GitHub</div>
+              <div class="slider-badge"><i class="fa-solid fa-chart-line" style="color: #10B981;"></i> Technical SEO</div>
+              <div class="slider-badge"><i class="fa-brands fa-figma" style="color: #F24E1E;"></i> Figma UI/UX</div>
+              <div class="slider-badge"><i class="fa-solid fa-envelope" style="color: #F43F5E;"></i> Resend API</div>
+              <!-- Duplicate set for seamless continuous marquee loop -->
+              <div class="slider-badge"><i class="fa-brands fa-react" style="color: #61DAFB;"></i> React.js</div>
+              <div class="slider-badge"><i class="fa-brands fa-node-js" style="color: #68A063;"></i> Node.js</div>
+              <div class="slider-badge"><i class="fa-brands fa-js" style="color: #F7DF1E;"></i> JavaScript ES6+</div>
+              <div class="slider-badge"><i class="fa-solid fa-bolt" style="color: #38bdf8;"></i> Next.js</div>
+              <div class="slider-badge"><i class="fa-solid fa-database" style="color: #47A248;"></i> MongoDB</div>
+              <div class="slider-badge"><i class="fa-brands fa-python" style="color: #3776AB;"></i> Python</div>
+              <div class="slider-badge"><i class="fa-brands fa-docker" style="color: #2496ED;"></i> Docker</div>
+              <div class="slider-badge"><i class="fa-solid fa-server" style="color: #818cf8;"></i> Express.js</div>
+              <div class="slider-badge"><i class="fa-brands fa-git-alt" style="color: #F05032;"></i> Git & GitHub</div>
+              <div class="slider-badge"><i class="fa-solid fa-chart-line" style="color: #10B981;"></i> Technical SEO</div>
+              <div class="slider-badge"><i class="fa-brands fa-figma" style="color: #F24E1E;"></i> Figma UI/UX</div>
+              <div class="slider-badge"><i class="fa-solid fa-envelope" style="color: #F43F5E;"></i> Resend API</div>
+            </div>
+          </div>
+        </div>
 
         <div class="tech-grid">
           <!-- Frontend -->
@@ -950,10 +1046,10 @@
       <h1>Let's Connect</h1>
       <div class="contact-content">
         <div class="contact-info slide-in-left">
-          <p style="font-size: 1.2rem; line-height: 1.7; font-weight: 600; color: #1e3a8a; margin-bottom: 10px;">
+          <p style="font-size: 1.25rem; line-height: 1.7; font-weight: 700; color: var(--accent-cyan); margin-bottom: 12px;">
             Let's build something that users discover and remember.
           </p>
-          <p style="font-size: 1.05rem; line-height: 1.6; color: #555; margin-bottom: 25px;">
+          <p style="font-size: 1.1rem; line-height: 1.7; color: #e2e8f0; margin-bottom: 25px;">
             Whether it's a full-stack product, API integration, or search growth strategy — let's connect.
           </p>
 
@@ -1009,14 +1105,58 @@
               <input type="email" placeholder="Your Email" required name="user_email">
             </div>
             <div class="form-group">
-              <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+              <!-- Border Trail Textarea (Motion-Primitives BorderTrail) -->
+              <div class="border-trail-box">
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <div class="border-trail"></div>
+              </div>
             </div>
-            <button type="submit" class="btn-send">Send Message</button>
+            <div class="glow-effect-wrapper btn-send-glow">
+              <div class="glow-effect"></div>
+              <button type="submit" class="btn-send magnetic" data-magnetic>
+                <span>Send Message</span> <i class="fa-solid fa-paper-plane" style="margin-left: 6px;"></i>
+              </button>
+            </div>
           </form>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Apple Style Interactive Floating Dock (Motion-Primitives Dock) -->
+  <nav class="dock-container" id="dock-container" aria-label="Quick Actions Dock">
+    <!-- Mobile Menu Floating Trigger Button (visible only on <= 768px) -->
+    <button class="dock-mobile-trigger" id="dock-mobile-trigger" aria-label="Toggle Navigation Menu">
+      <i class="fa-solid fa-bars" id="dock-trigger-icon"></i>
+      <span class="dock-trigger-text">Menu</span>
+    </button>
+
+    <!-- The Dock Bar (macOS Dock on desktop / Glass Sheet Menu on mobile) -->
+    <div class="dock" id="apple-dock">
+      <a href="#tech-stack" class="dock-item" data-title="Tech Stack" aria-label="Tech Stack">
+        <span class="dock-label">Tech Stack</span>
+        <div class="dock-icon"><i class="fa-solid fa-code"></i></div>
+        <span class="dock-mobile-text">Tech</span>
+      </a>
+      <a href="#experience" class="dock-item" data-title="Timeline" aria-label="Experience">
+        <span class="dock-label">Experience</span>
+        <div class="dock-icon"><i class="fa-solid fa-timeline"></i></div>
+        <span class="dock-mobile-text">Timeline</span>
+      </a>
+      <a href="#metrics" class="dock-item" data-title="Metrics" aria-label="Metrics">
+        <span class="dock-label">Metrics</span>
+        <div class="dock-icon"><i class="fa-solid fa-chart-simple"></i></div>
+        <span class="dock-mobile-text">Metrics</span>
+      </a>
+      <div class="dock-separator"></div>
+      <a href="https://wa.me/9454201939" target="_blank" rel="noopener noreferrer" class="dock-item dock-whatsapp" data-title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+        <span class="dock-label">WhatsApp</span>
+        <div class="dock-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <span class="dock-mobile-text">WhatsApp</span>
+      </a>
+    </div>
+  </nav>
+
   <footer class="footer">
     <div class="footer-container">
       <h2 class="footer-logo">Samradh Vikram Srivastava (Samradh)</h2>
