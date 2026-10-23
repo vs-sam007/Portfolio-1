@@ -634,7 +634,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (typeof VanillaTilt !== 'undefined' && !isTouchDevice) {
-    VanillaTilt.init(document.querySelectorAll(".project-card, .service-card, .c1, .tech-card, .seo-card, .metric-card, .timeline-content, .exploring-card"), {
+    VanillaTilt.init(document.querySelectorAll(".project-card:not(.case-study-card), .service-card, .c1, .tech-card, .seo-card, .metric-card, .timeline-content, .exploring-card"), {
       max: 8,
       speed: 400,
       glare: true,

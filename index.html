@@ -636,22 +636,18 @@
       <div class="projects-container">
 
         <!-- PFDA Academy Management System -->
-        <div class="project-card case-study-card" data-tilt>
+        <div class="project-card case-study-card">
           <img src="images/pfda.jpeg" alt="PFDA Academy Management System" loading="lazy" decoding="async">
           <h3>PFDA Academy Management System</h3>
 
           <div class="case-study-meta">
             <div class="meta-section">
               <strong><i class="fa-solid fa-circle-exclamation"></i> Problem:</strong>
-              <p>Educational institutes and academies struggle with fragmented administrative workflows. Managing
-                student enrollments, tracking fee payments, taking attendance, and following up on enquiries via manual
-                spreadsheets leads to data loss, inefficiencies, and revenue leakage.</p>
+              <p>Multi-branch academies like Pathfinder Defence Academy run admissions, fee collection and attendance on spreadsheets and registers, and cloud-only tools stop working when the internet goes down. The result is data loss, missed fee follow-ups and no single view across branches.</p>
             </div>
             <div class="meta-section">
               <strong><i class="fa-solid fa-circle-check"></i> Solution:</strong>
-              <p>Engineered a comprehensive, offline-first Electron desktop application with real-time cloud
-                synchronization. The platform features an intuitive dashboard for seamless student management, automated
-                fee receipt generation, interactive kanban boards for enquiries, and deep financial analytics.</p>
+              <p>Built a live, offline-first Electron desktop app with local SQLite storage and automatic cloud sync (Supabase) when the connection returns. Staff can process admissions, collect fees and mark attendance without internet, while the owner gets a live dashboard with combined financial and student data across all branches. Branch managers only see their own branch through role-based access, with automated PDF fee receipts and a kanban board for enquiries.</p>
             </div>
           </div>
 
@@ -659,16 +655,19 @@
             <a href="#">Electron</a>
             <a href="#">React</a>
             <a href="#">TypeScript</a>
-            <a href="#">Offline-First</a>
+            <a href="#">Tailwind CSS</a>
             <a href="#">Supabase</a>
+            <a href="#">SQLite</a>
+            <a href="#">Offline-First</a>
           </div>
 
           <div class="case-study-impact">
             <div class="impact-title"><i class="fa-solid fa-chart-line"></i> Proven Impact:</div>
             <ul>
-              <li>✔ 100% data availability with local offline SQLite and real-time cloud sync.</li>
-              <li>✔ Centralized management for students, courses, fees, and staff attendance.</li>
-              <li>✔ Streamlined financial operations through automated tracking and PDF receipts.</li>
+              <li>✔ Live and in use at a real multi-branch academy.</li>
+              <li>✔ Works fully offline with local SQLite and syncs to the cloud automatically when the internet returns.</li>
+              <li>✔ One owner dashboard with combined financial and student data across all branches.</li>
+              <li>✔ Role-based access keeps each branch's data separate; fee tracking with automated PDF receipts.</li>
             </ul>
           </div>
 
@@ -678,8 +677,50 @@
           </div>
         </div>
 
+        <!-- BFC Gym Management App -->
+        <div class="project-card case-study-card">
+          <img src="images/bfc.png" alt="BFC Gym Management App - Body Fitness Center, Lucknow" loading="lazy" decoding="async">
+          <h3>BFC Gym Management App</h3>
+
+          <div class="case-study-meta">
+            <div class="meta-section">
+              <strong><i class="fa-solid fa-circle-exclamation"></i> Problem:</strong>
+              <p>Local gyms often track members, packages and attendance in registers or spreadsheets, which makes it hard to see who is active, whose package is expiring and how attendance is trending.</p>
+            </div>
+            <div class="meta-section">
+              <strong><i class="fa-solid fa-circle-check"></i> Solution:</strong>
+              <p>Built a mobile-first, dark-themed web app for Body Fitness Center, Lucknow, with secure authentication, a live dashboard, member management, membership packages and instant QR-code attendance.</p>
+            </div>
+          </div>
+
+          <div class="skills">
+            <a href="#">React</a>
+            <a href="#">Supabase</a>
+            <a href="#">Authentication</a>
+            <a href="#">QR Attendance</a>
+            <a href="#">Responsive Design</a>
+            <a href="#">Vercel</a>
+          </div>
+
+          <div class="case-study-impact">
+            <div class="impact-title"><i class="fa-solid fa-chart-line"></i> Proven Impact:</div>
+            <ul>
+              <li>✔ Secure login so only authorised users can access gym data.</li>
+              <li>✔ Live dashboard showing up-to-date member and activity data.</li>
+              <li>✔ Instant QR-code attendance check-ins.</li>
+              <li>✔ Membership packages and members managed in one place.</li>
+            </ul>
+          </div>
+
+          <div class="btns">
+            <a href="https://bodyfitnesscenter.vercel.app/" class="btn"
+              style="flex: 1; text-align: center; justify-content: center;"><i
+                class="fa-solid fa-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </div>
+
         <!-- Personal Developer Portfolio -->
-        <div class="project-card case-study-card" data-tilt>
+        <div class="project-card case-study-card">
           <img src="images/portfolio.png" alt="Samradh Vikram Srivastava - Personal Developer Portfolio" loading="lazy"
             decoding="async">
           <h3>Personal Developer Portfolio</h3>
@@ -722,47 +763,90 @@
           </div>
         </div>
 
-        <!-- Iron Pulse -->
-        <div class="project-card case-study-card" data-tilt>
-          <img src="images/iron pulse.png" alt="Iron Pulse" loading="lazy" decoding="async">
-          <h3>Iron Pulse Fitness Hub</h3>
+        <!-- Real Estate Premium -->
+        <div class="project-card case-study-card">
+          <img src="images/pbd.png" alt="Real Estate Premium - PBD Group Web Platform" loading="lazy" decoding="async">
+          <h3>Real Estate Premium</h3>
 
           <div class="case-study-meta">
             <div class="meta-section">
               <strong><i class="fa-solid fa-circle-exclamation"></i> Problem:</strong>
-              <p>Generic regional gym websites fail to convert traffic into qualified, scheduled trial memberships.</p>
+              <p>Prospective property buyers and investors face fragmented real estate listings with unverified plot documentation, unclear pricing tiers, and disjointed inquiries across Lucknow's high-growth corridors.</p>
             </div>
             <div class="meta-section">
               <strong><i class="fa-solid fa-circle-check"></i> Solution:</strong>
-              <p>Created a high-converting conversion landing layout featuring interactive scheduling tiers and fluid
-                program breakdowns.</p>
+              <p>Collaborated on a team project to develop a premium real estate web platform (PBD Group), focusing on modern UI design, property presentation, transparent plot discovery, and a polished user experience.</p>
             </div>
           </div>
 
           <div class="skills">
-            <a href="#">TypeScript</a>
-            <a href="#">Vanilla CSS</a>
-            <a href="#">Responsive Design</a>
-            <a href="#">Interactive Pricing</a>
+            <a href="#">React</a>
+            <a href="#">Vite</a>
+            <a href="#">Tailwind CSS</a>
+            <a href="#">Lucide Icons</a>
+            <a href="#">Team Project</a>
+            <a href="#">Responsive UI</a>
           </div>
 
           <div class="case-study-impact">
             <div class="impact-title"><i class="fa-solid fa-chart-line"></i> Proven Impact:</div>
             <ul>
-              <li>✔ 30% reduction in lead conversion friction</li>
-              <li>✔ Standardized interface elements on mobile viewports</li>
+              <li>✔ Collaboratively developed production real estate platform for PBD Group.</li>
+              <li>✔ Streamlined plot discovery and transparent property documentation.</li>
+              <li>✔ Interactive UI presentation optimized for desktop and mobile viewports.</li>
+              <li>✔ Integrated direct inquiry pipelines and high-converting listing navigation.</li>
             </ul>
           </div>
 
           <div class="btns">
-            <a href="https://iron-pulse-gymm.netlify.app/" class="btn"><i class="fa-solid fa-up-right-from-square"></i>
-              Live Demo</a>
-            <a href="https://github.com/vs-sam007/Gymm.git" class="btn"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://pbdgroup.in/" class="btn"><i class="fa-solid fa-up-right-from-square"></i> Live Demo</a>
+            <a href="https://github.com/Integritycodesz/real-estate-premium" class="btn"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+
+        <!-- Pathfinder Defence Academy -->
+        <div class="project-card case-study-card">
+          <img src="images/pfda-web.png" alt="Pathfinder Defence Academy Official Website" loading="lazy" decoding="async">
+          <h3>Pathfinder Defence Academy</h3>
+
+          <div class="case-study-meta">
+            <div class="meta-section">
+              <strong><i class="fa-solid fa-circle-exclamation"></i> Problem:</strong>
+              <p>Defence coaching institutes struggle with organic search discovery, complex course navigation across NDA, CDS &amp; SSB batches, and converting prospective candidates into enrolled admissions.</p>
+            </div>
+            <div class="meta-section">
+              <strong><i class="fa-solid fa-circle-check"></i> Solution:</strong>
+              <p>Contributed to the development and search architecture of Pathfinder Defence Academy's website, focusing on user experience, responsive web design, technical SEO, and online visibility.</p>
+            </div>
+          </div>
+
+          <div class="skills">
+            <a href="#">Next.js</a>
+            <a href="#">TypeScript</a>
+            <a href="#">Tailwind CSS</a>
+            <a href="#">Technical SEO</a>
+            <a href="#">Framer Motion</a>
+            <a href="#">Schema.org</a>
+          </div>
+
+          <div class="case-study-impact">
+            <div class="impact-title"><i class="fa-solid fa-chart-line"></i> Proven Impact:</div>
+            <ul>
+              <li>✔ Architected technical SEO and structured JSON-LD schemas across multiple branches.</li>
+              <li>✔ Optimized Core Web Vitals and responsive UX for course &amp; demo bookings.</li>
+              <li>✔ High organic search ranking for Lucknow's top NDA &amp; defence coaching keywords.</li>
+              <li>✔ Multi-campus course catalog mapping NDA, CDS, SSB, and Foundation batches.</li>
+            </ul>
+          </div>
+
+          <div class="btns">
+            <a href="https://pathfinderdefenceacademy.com/" class="btn"><i class="fa-solid fa-up-right-from-square"></i> Live Website</a>
+            <a href="https://github.com/vs-sam007/pfda" class="btn"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
 
         <!-- Dental Care -->
-        <div class="project-card case-study-card" data-tilt>
+        <div class="project-card case-study-card">
           <img src="images/ld.png" alt="Dental Care" loading="lazy" decoding="async">
           <h3>Dental Care Clinic</h3>
 
@@ -797,88 +881,6 @@
             <a href="https://fluffy-tarsier-90be73.netlify.app/" class="btn"><i
                 class="fa-solid fa-up-right-from-square"></i> Live Demo</a>
             <a href="https://github.com/vs-sam007/Dental-Clinic" class="btn"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-
-        <!-- Homoeopathic Clinic -->
-        <div class="project-card case-study-card" data-tilt>
-          <img src="images/hn.png" alt="Homoeopathic Clinic" loading="lazy" decoding="async">
-          <h3>Healing Nature Clinic</h3>
-
-          <div class="case-study-meta">
-            <div class="meta-section">
-              <strong><i class="fa-solid fa-circle-exclamation"></i> Problem:</strong>
-              <p>Alternative medicine clinics lack modern, trust-building user experiences, resulting in low organic
-                discovery.</p>
-            </div>
-            <div class="meta-section">
-              <strong><i class="fa-solid fa-circle-check"></i> Solution:</strong>
-              <p>Formulated a secure, responsive patient dashboard featuring direct consultation triggers and search
-                optimization.</p>
-            </div>
-          </div>
-
-          <div class="skills">
-            <a href="#">SEO</a>
-            <a href="#">AEO</a>
-            <a href="#">JavaScript</a>
-            <a href="#">Dynamic Reviews</a>
-          </div>
-
-          <div class="case-study-impact">
-            <div class="impact-title"><i class="fa-solid fa-chart-line"></i> Proven Impact:</div>
-            <ul>
-              <li>✔ 40% increase in local organic search visibility</li>
-              <li>✔ Instant scheduling with zero setup friction</li>
-            </ul>
-          </div>
-
-          <div class="btns">
-            <a href="https://glistening-truffle-d70300.netlify.app/" class="btn"><i
-                class="fa-solid fa-up-right-from-square"></i> Live Demo</a>
-            <a href="https://github.com/vs-sam007/Homoeopathic-Clinic" class="btn"><i class="fab fa-github"></i>
-              GitHub</a>
-          </div>
-        </div>
-
-        <!-- DVicious Brew -->
-        <div class="project-card case-study-card" data-tilt>
-          <img src="images/coffee.png" alt="DVicious Brew" loading="lazy" decoding="async">
-          <h3>DVicious Brew Cafe</h3>
-
-          <div class="case-study-meta">
-            <div class="meta-section">
-              <strong><i class="fa-solid fa-circle-exclamation"></i> Problem:</strong>
-              <p>Traditional local cafes lose high-value digital-native customer bookings due to sluggish, static
-                layouts.
-              </p>
-            </div>
-            <div class="meta-section">
-              <strong><i class="fa-solid fa-circle-check"></i> Solution:</strong>
-              <p>Engineered an immersive interactive café menu experience featuring custom micro-animations and
-                zero-friction load states.</p>
-            </div>
-          </div>
-
-          <div class="skills">
-            <a href="#">HTML5</a>
-            <a href="#">CSS3 Grid</a>
-            <a href="#">JavaScript</a>
-            <a href="#">AOS.js</a>
-          </div>
-
-          <div class="case-study-impact">
-            <div class="impact-title"><i class="fa-solid fa-chart-line"></i> Proven Impact:</div>
-            <ul>
-              <li>✔ 45% increase in user session duration</li>
-              <li>✔ 100% Google Lighthouse speed score</li>
-            </ul>
-          </div>
-
-          <div class="btns">
-            <a href="https://caffee001.netlify.app/" class="btn"><i class="fa-solid fa-up-right-from-square"></i> Live
-              Demo</a>
-            <a href="https://github.com/vs-sam007/Cafee.git" class="btn"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
 
