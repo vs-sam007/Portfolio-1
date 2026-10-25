@@ -225,8 +225,25 @@ document.addEventListener('DOMContentLoaded', () => {
   backToTop.addEventListener('mouseenter', () => backToTop.style.transform = 'scale(1.15) translateY(-3px)');
   backToTop.addEventListener('mouseleave', () => backToTop.style.transform = 'scale(1) translateY(0)');
 
+  // Smart Dock Auto-Hide on Scroll Down / Reveal on Scroll Up & Mouse Bottom
+  const dockContainerEl = document.getElementById('dock-container');
+  let lastScrollYPos = window.scrollY;
+
   window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY + 120;
+    const currentScrollY = window.scrollY;
+    const scrollDelta = currentScrollY - lastScrollYPos;
+
+    // Auto-hide floating dock when scrolling down past top fold to keep all content visible
+    if (dockContainerEl && dockContainerEl.classList.contains('visible')) {
+      if (scrollDelta > 8 && currentScrollY > 150) {
+        dockContainerEl.classList.add('dock-hidden');
+      } else if (scrollDelta < -6) {
+        dockContainerEl.classList.remove('dock-hidden');
+      }
+    }
+    lastScrollYPos = currentScrollY;
+
+    const scrollPos = currentScrollY + 120;
 
     sections.forEach(section => {
       if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
@@ -248,7 +265,25 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       backToTop.style.display = "none";
     }
-  });
+  }, { passive: true });
+
+  // Instantly reveal dock if user moves cursor near the bottom edge of the viewport
+  window.addEventListener('mousemove', (e) => {
+    if (dockContainerEl && dockContainerEl.classList.contains('visible')) {
+      if (e.clientY > window.innerHeight - 85) {
+        dockContainerEl.classList.remove('dock-hidden');
+      }
+    }
+  }, { passive: true });
+
+  // On touch devices: reveal dock if touching near bottom
+  window.addEventListener('touchstart', (e) => {
+    if (dockContainerEl && dockContainerEl.classList.contains('visible')) {
+      if (e.touches && e.touches[0] && e.touches[0].clientY > window.innerHeight - 90) {
+        dockContainerEl.classList.remove('dock-hidden');
+      }
+    }
+  }, { passive: true });
 
   // --------------------------------------------------------------------------
   // 4. MATRIX TEXT SCRAMBLE (Motion-Primitives TextScramble)
@@ -633,13 +668,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --------------------------------------------------------------------------
+  // 12. PROJECT CASE STUDY FILTER (Spatial Bento Controls)
+  // --------------------------------------------------------------------------
+  const filterBtns = document.querySelectorAll('.project-filter-btn');
+  const projectCards = document.querySelectorAll('.bento-case-study');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const categories = card.getAttribute('data-category') || '';
+        if (filter === 'all' || categories.includes(filter)) {
+          card.classList.remove('filter-hidden');
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        } else {
+          card.classList.add('filter-hidden');
+        }
+      });
+    });
+  });
+
+  // 11. SUBTLE SPATIAL TILT PHYSICS (Fixes excessive 35deg card rotation)
   if (typeof VanillaTilt !== 'undefined' && !isTouchDevice) {
-    VanillaTilt.init(document.querySelectorAll(".project-card:not(.case-study-card), .service-card, .c1, .tech-card, .seo-card, .metric-card, .timeline-content, .exploring-card"), {
-      max: 8,
-      speed: 400,
+    // 1. Destroy any auto-inited instances to eliminate the jarring 35deg default tilt
+    const allTiltTargets = document.querySelectorAll(
+      ".bento-card, .service-card, .tech-card, .seo-card, .metric-card, .timeline-content, .exploring-card, .modal-content, [data-tilt]"
+    );
+    allTiltTargets.forEach(el => {
+      if (el.vanillaTilt && typeof el.vanillaTilt.destroy === 'function') {
+        el.vanillaTilt.destroy();
+      }
+      el.removeAttribute('data-tilt');
+    });
+
+    // 2. Re-bind with subtle, grounded spatial physics (max 2.2°, perspective 2600px)
+    VanillaTilt.init(document.querySelectorAll(
+      ".bento-card, .service-card, .tech-card, .seo-card, .metric-card, .timeline-content, .exploring-card"
+    ), {
+      max: 2.2,
+      perspective: 2600,
+      speed: 600,
+      scale: 1.008,
       glare: true,
-      "max-glare": 0.15,
+      "max-glare": 0.05,
+      easing: "cubic-bezier(.03,.98,.52,.99)"
     });
   }
 
+  // 12. PREVENT UNINTENDED JUMP TO TOP ON STATIC PILL LINKS (href="#")
+  document.querySelectorAll('a[href="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+    });
+  });
+
 });
+

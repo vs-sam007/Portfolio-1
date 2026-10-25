@@ -194,7 +194,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:wght@300..800&family=Playfair+Display:wght@400..900&family=Unbounded:wght@200..900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:wght@300..800&family=Playfair+Display:wght@400..900&family=Unbounded:wght@200..900&display=swap"
     rel="stylesheet">
   <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style"
     onload="this.onload=null;this.rel='stylesheet'">
@@ -207,6 +207,10 @@
 </head>
 
 <body>
+  <!-- Interactive 3D Spatial Canvas Background Engine -->
+  <canvas id="spatial-canvas"></canvas>
+  <div class="spatial-noise-overlay" aria-hidden="true"></div>
+
   <!-- Custom Cursor Elements -->
   <div class="cursor-dot" data-cursor-dot></div>
   <div class="cursor-outline" data-cursor-outline></div>
@@ -254,119 +258,314 @@
     </div>
   </header>
   <main>
-    <!-- home -->
-    <section class="home" id="home">
-      <p class="home-p text-shimmer-wave">
-        <span class="home-s">● </span>Available for freelance & contract work
-      </p>
-      <div class="home-container">
-        <div class="home-section">
-          <div class="info-home">
-            <h1 class="gradient-text">Hi, I'm Samradh Srivastava</h1>
-            <h3 id="typing-hero" class="text-scramble-hero"><span class="scramble-text">Full Stack Developer</span><span class="scramble-cursor">_</span></h3>
-            <div class="info-p" style="max-width: 650px;">
-              <p><strong style="color: var(--accent-cyan);">Full Stack Developer | SEO • AEO • GEO Specialist</strong></p>
-              <p style="margin-top: 10px; font-size: 1.1rem; line-height: 1.6; color: var(--text-muted);">
-                I'm Samradh Vikram Srivastava (Samradh), building scalable web apps, AI-powered workflows, and
-                search-optimized digital experiences that rank,
-                convert, and grow.
-              </p>
-            </div>
+    <!-- SPATIAL BENTO HERO -->
+    <section class="home spatial-bento-hero" id="home">
+      <!-- Micro-HUD Spatial Telemetry Bar -->
+      <div class="spatial-hud-bar" data-aos="fade-down">
+        <div class="hud-item hud-status">
+          <span class="hud-beacon"></span>
+          <span class="hud-mono">SAMRADH.SPATIAL.OS // v2.6.4</span>
+        </div>
+        <div class="hud-item hud-telemetry">
+          <span class="hud-mono" id="hud-time-ticker">IST --:--:-- // UTC --:--:-- // LKO 26.84°N</span>
+        </div>
+        <div class="hud-item hud-audio-toggle" id="hud-audio-btn" role="button" tabindex="0" aria-label="Toggle UI Audio">
+          <i class="fa-solid fa-volume-xmark" id="hud-audio-icon"></i>
+          <span class="hud-mono" id="hud-audio-text">AUDIO: OFF</span>
+        </div>
+      </div>
 
-            <ul class="hero-checklist">
-              <li><i class="fa-solid fa-circle-check"></i> Full Stack Development</li>
-              <li><i class="fa-solid fa-circle-check"></i> REST API Integrations</li>
-              <li><i class="fa-solid fa-circle-check"></i> SEO / AEO / GEO Optimization</li>
-              <li><i class="fa-solid fa-circle-check"></i> Email Automation (Resend)</li>
-              <li><i class="fa-solid fa-circle-check"></i> AI-powered solutions</li>
-            </ul>
+      <!-- Hero Bento Grid Matrix -->
+      <div class="hero-bento-grid">
+        <!-- Cell 1: Core Identity & Editorial Command (Span 7 cols) -->
+        <div class="bento-card bento-hero-main">
+          <div class="bento-corner-hud top-left">+</div>
+          <div class="bento-corner-hud top-right">+</div>
 
-            <div class="info-p2">
-              <p><i class="fa-solid fa-location-dot"></i> Based in INDIA</p>
-              <p><i class="fa-solid fa-briefcase"></i> Available Now</p>
+          <div class="bento-badge-row">
+            <div class="bento-badge-live">
+              <span class="pulse-beacon"></span>
+              <span>AVAILABLE FOR FREELANCE &amp; CONTRACT WORK</span>
             </div>
-            <div class="btnn">
-              <div class="glow-effect-wrapper">
-                <div class="glow-effect"></div>
-                <a href="#project" class="magnetic-btn-wrap">
-                  <button class="btn-home1 magnetic" data-magnetic>
-                    <i class="fa-solid fa-folder-open"></i> <span>View Projects</span>
-                  </button>
-                </a>
-              </div>
-              <a href="#contact" class="magnetic-btn-wrap">
-                <button class="btn-home2 magnetic" data-magnetic>
-                  <i class="fa-solid fa-calendar-days"></i> <span>Book a Call</span>
+            <div class="bento-badge-mono">
+              <i class="fa-solid fa-bolt" style="color: var(--accent-cyan);"></i> ACTIVE NOW
+            </div>
+          </div>
+
+          <div class="bento-hero-heading-wrap">
+            <span class="bento-sublabel">// 01 CORE IDENTITY</span>
+            <h1 class="bento-hero-title">
+              Hi, I'm <span class="gradient-text">Samradh Srivastava</span>
+            </h1>
+            <div class="bento-scramble-box">
+              <h3 id="typing-hero" class="text-scramble-hero">
+                <span class="scramble-text">Full Stack Developer</span><span class="scramble-cursor">_</span>
+              </h3>
+            </div>
+          </div>
+
+          <p class="bento-hero-desc">
+            Creative Technologist &amp; Full Stack Developer based in India. I engineer high-performance web systems, AI workflows, and search-optimized digital platforms (<strong>SEO • AEO • GEO</strong>) built to rank, convert, and scale effortlessly.
+          </p>
+
+          <!-- Core Feature Pills -->
+          <div class="bento-feature-chips">
+            <span class="bento-chip"><i class="fa-solid fa-code"></i> Full Stack Web Apps</span>
+            <span class="bento-chip"><i class="fa-solid fa-network-wired"></i> REST &amp; GraphQL APIs</span>
+            <span class="bento-chip"><i class="fa-solid fa-chart-line"></i> Technical SEO / AEO / GEO</span>
+            <span class="bento-chip"><i class="fa-solid fa-envelope"></i> Resend Email Pipelines</span>
+            <span class="bento-chip"><i class="fa-solid fa-robot"></i> Agentic AI Solutions</span>
+          </div>
+
+          <!-- CTAs -->
+          <div class="bento-hero-actions">
+            <div class="glow-effect-wrapper">
+              <div class="glow-effect"></div>
+              <a href="#project" class="magnetic-btn-wrap">
+                <button class="btn-home1 bento-btn-primary magnetic" data-magnetic>
+                  <i class="fa-solid fa-folder-open"></i> <span>Explore Featured Work</span>
+                  <i class="fa-solid fa-arrow-right-long" style="margin-left: 4px;"></i>
                 </button>
               </a>
             </div>
-            <div class="hhr">
-              <hr>
+            <a href="#contact" class="magnetic-btn-wrap">
+              <button class="btn-home2 bento-btn-secondary magnetic" data-magnetic>
+                <i class="fa-solid fa-calendar-days"></i> <span>Book Strategy Call</span>
+              </button>
+            </a>
+          </div>
+
+          <div class="bento-corner-hud bottom-left">+</div>
+          <div class="bento-corner-hud bottom-right">+</div>
+        </div>
+
+        <!-- Cell 2: Live Code & Engineering Node (Span 5 cols) -->
+        <div class="bento-card bento-hero-terminal">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="tdot red"></span>
+              <span class="tdot yellow"></span>
+              <span class="tdot green"></span>
             </div>
-            <div class="follow">
-              <p class="followw">Follow me:</p>
-              <ul>
-                <li><a href="https://github.com/vs-sam007" target="_blank" rel="noopener noreferrer"
-                    aria-label="GitHub Profile"><i class="fa-brands fa-github"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/samradh-vikram-srivastava-485b0631b" target="_blank"
-                    rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i></a>
-                </li>
-                <li><a href="https://www.instagram.com/samradh_srivastava015" target="_blank" rel="noopener noreferrer"
-                    aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a></li>
-              </ul>
+            <span class="terminal-title">~/samradh/config.engine.ts</span>
+            <span class="terminal-badge">LIVE 60FPS</span>
+          </div>
+          <div class="terminal-body">
+            <pre><code class="terminal-code"><span class="c-kw">interface</span> <span class="c-type">CreativeTechnologist</span> {
+  <span class="c-prop">name</span>: <span class="c-str">"Samradh Vikram Srivastava"</span>;
+  <span class="c-prop">location</span>: <span class="c-str">"Lucknow, India [26.84° N]"</span>;
+  <span class="c-prop">status</span>: <span class="c-str">"Shipping High-Performance Apps"</span>;
+  <span class="c-prop">coreStack</span>: [
+    <span class="c-str">"React"</span>, <span class="c-str">"Next.js"</span>, <span class="c-str">"Node.js"</span>,
+    <span class="c-str">"Supabase"</span>, <span class="c-str">"AEO/GEO"</span>, <span class="c-str">"APIs"</span>
+  ];
+  <span class="c-prop">offlineFirst</span>: <span class="c-bool">true</span>;
+  <span class="c-prop">lighthouseScore</span>: <span class="c-num">100</span>;
+}
+
+<span class="c-kw">export const</span> <span class="c-fn">samradh</span>: <span class="c-type">CreativeTechnologist</span> = {
+  <span class="c-comment">// Delivering high-impact digital products</span>
+  readyForDeploy: <span class="c-bool">true</span>
+};</code></pre>
+          </div>
+          <div class="terminal-footer">
+            <div class="terminal-status-row">
+              <span><span class="t-beacon"></span> Node: ap-south-1 (Mumbai)</span>
+              <span class="t-ping" id="hero-ping-val">Ping: 0.8ms</span>
             </div>
           </div>
         </div>
-        <img src="images/img2.png"
-          alt="Samradh Vikram Srivastava (Samradh Srivastava) - Full Stack Developer Workspace">
+
+        <!-- Cell 3: Geospatial Node & Live IST Clock (Span 4 cols) -->
+        <div class="bento-card bento-hero-geo">
+          <div class="bento-card-header">
+            <span class="bento-mono-tag"><i class="fa-solid fa-location-crosshairs"></i> GEOSPATIAL NODE</span>
+            <span class="geo-pulse"></span>
+          </div>
+          <div class="geo-time-display">
+            <div class="geo-clock" id="hero-clock-large">--:--:--</div>
+            <div class="geo-tz">INDIAN STANDARD TIME (IST / UTC+05:30)</div>
+          </div>
+          <div class="geo-coords">
+            <div class="coord-item">
+              <span class="coord-label">LAT</span>
+              <span class="coord-val">26.8467° N</span>
+            </div>
+            <div class="coord-item">
+              <span class="coord-label">LON</span>
+              <span class="coord-val">80.9462° E</span>
+            </div>
+            <div class="coord-item">
+              <span class="coord-label">HUB</span>
+              <span class="coord-val">Lucknow, IN</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cell 4: Proven Benchmarks Triad (Span 4 cols) -->
+        <div class="bento-card bento-hero-metrics">
+          <div class="bento-card-header">
+            <span class="bento-mono-tag"><i class="fa-solid fa-chart-simple"></i> PROVEN BENCHMARKS</span>
+            <span class="bento-mini-pill">VERIFIED</span>
+          </div>
+          <div class="bento-metric-triad">
+            <div class="triad-item">
+              <div class="triad-num">15<span class="triad-plus">+</span></div>
+              <div class="triad-lbl">Production Apps</div>
+            </div>
+            <div class="triad-item">
+              <div class="triad-num">100<span class="triad-pct">%</span></div>
+              <div class="triad-lbl">Core Web Vitals</div>
+            </div>
+            <div class="triad-item">
+              <div class="triad-num">1K<span class="triad-plus">+</span></div>
+              <div class="triad-lbl">Users Reached</div>
+            </div>
+          </div>
+          <div class="triad-bar">
+            <div class="triad-bar-fill"></div>
+          </div>
+        </div>
+
+        <!-- Cell 5: Direct Network Channels (Span 4 cols) -->
+        <div class="bento-card bento-hero-network">
+          <div class="bento-card-header">
+            <span class="bento-mono-tag"><i class="fa-solid fa-network-wired"></i> DIRECT CHANNELS</span>
+            <span class="bento-mini-pill">ONLINE</span>
+          </div>
+          <div class="bento-social-grid">
+            <a href="https://github.com/vs-sam007" target="_blank" rel="noopener noreferrer" class="bento-social-btn" aria-label="GitHub Profile">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+              <i class="fa-solid fa-arrow-up-right-from-square mini-arrow"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/samradh-vikram-srivastava-485b0631b" target="_blank" rel="noopener noreferrer" class="bento-social-btn" aria-label="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin"></i>
+              <span>LinkedIn</span>
+              <i class="fa-solid fa-arrow-up-right-from-square mini-arrow"></i>
+            </a>
+            <a href="https://wa.me/9454201939" target="_blank" rel="noopener noreferrer" class="bento-social-btn" aria-label="WhatsApp Direct">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>WhatsApp</span>
+              <i class="fa-solid fa-arrow-up-right-from-square mini-arrow"></i>
+            </a>
+            <a href="mailto:sam.srivastava015@gmail.com" class="bento-social-btn" aria-label="Direct Email">
+              <i class="fa-solid fa-envelope"></i>
+              <span>Email</span>
+              <i class="fa-solid fa-arrow-up-right-from-square mini-arrow"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
-    <!-- fine home  -->
-    <section class="about" id="about">
-      <h5>ABOUT ME</h5>
-      <div class="title">
-        <h1>Building High-Performance</h1>
-        <h1>Digital Products & Growth</h1>
+
+    <!-- SPATIAL BENTO ABOUT SECTION -->
+    <section class="about spatial-bento-section" id="about">
+      <div class="section-title-wrap" data-aos="fade-up">
+        <div class="section-tag-mono">// 02 BACKGROUND &amp; ARCHITECTURE</div>
+        <h2 class="section-display-heading">Building High-Performance <span class="gradient-text">Digital Systems &amp; Growth</span></h2>
+        <p class="section-display-sub">Where full-stack engineering meets search discoverability and generative engine architecture.</p>
       </div>
-      <div class="hrrr">
-        <hr>
-      </div>
-      <div class="about-container">
-        <div class="info-about">
-          <div class="about-info">
-            <p class="about-text"
-              style="font-size: 1.15rem; line-height: 1.85; font-weight: 400; color: #e2e8f0; max-width: 800px; margin-bottom: 20px;">
-              I'm a Full Stack Developer focused on building high-performance digital products and growth-driven
-              experiences. Beyond development, I work on SEO, AEO (Answer Engine Optimization), and GEO (Generative
-              Engine
-              Optimization) strategies to help products get discovered across search engines and AI platforms.
-            </p>
-            <p class="about-text"
-              style="font-size: 1.15rem; line-height: 1.85; font-weight: 400; color: #e2e8f0; max-width: 800px; margin-bottom: 30px;">
-              I build modern applications with API integrations, automation workflows, and scalable backend systems.
-              Recently, I’ve worked with services like Resend for email workflows and third-party APIs to create
-              seamless
-              user experiences.
-            </p>
+
+      <div class="about-bento-grid">
+        <!-- Story & Philosophy Card (Span 8 cols) -->
+        <div class="bento-card bento-about-story" data-aos="fade-up">
+          <div class="bento-card-header">
+            <span class="bento-mono-tag"><i class="fa-solid fa-terminal"></i> CORE PHILOSOPHY</span>
+            <span class="bento-mini-pill">ENGINEERING DNA</span>
           </div>
-          <h2>What Drives Me</h2>
-          <div class="card">
-            <div class="c1">
-              <h3><i class="fa-solid fa-code"></i> Languages & Dev</h3>
-              <p>React, Next.js, Node.js, Express, MongoDB, JavaScript</p>
+          <p class="about-p-lead">
+            I'm a Full Stack Developer &amp; Growth Systems Architect specializing in engineering scalable digital solutions that bridge technical excellence with measurable business outcomes.
+          </p>
+          <p class="about-p-sub">
+            Beyond crafting fluid interfaces and scalable backend micro-architectures, I design deep <strong>SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization)</strong> frameworks. In an era where AI platforms like ChatGPT, Perplexity, and Google Gemini dictate discoverability, I build systems structured to be indexed, cited, and recommended at scale.
+          </p>
+          <p class="about-p-sub">
+            From building offline-first desktop systems with SQLite and Supabase cloud replication for multi-branch academies, to transactional email automation pipelines with Resend and secure third-party APIs — I build software that performs under real-world operational pressure.
+          </p>
+          
+          <div class="about-quote-box">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            <p>"High performance isn't just about loading fast — it's about being discovered, staying reliable when the network drops, and scaling effortlessly."</p>
+          </div>
+        </div>
+
+        <!-- Monogram / Identity Badge Card (Span 4 cols) -->
+        <div class="bento-card bento-about-badge" data-aos="fade-up">
+          <div class="bento-card-header">
+            <span class="bento-mono-tag"><i class="fa-solid fa-id-card"></i> SYSTEM IDENTITY</span>
+            <span class="badge-active-dot"></span>
+          </div>
+          
+          <div class="svs-avatar-container">
+            <div class="svs-avatar-glow"></div>
+            <img src="images/system_identity_avatar.png" alt="Samradh Vikram Srivastava - System Identity" class="svs-avatar-img" loading="lazy">
+          </div>
+
+          <div class="svs-meta-box">
+            <h3>Samradh Vikram Srivastava</h3>
+            <p class="svs-role">Full Stack Developer &amp; Growth Architect</p>
+            <div class="svs-tag-row">
+              <span class="svs-pill">India</span>
+              <span class="svs-pill">B.Tech CS</span>
+              <span class="svs-pill">Open Source</span>
             </div>
-            <div class="c1">
-              <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
-              <p>Currently pursuing B.Tech in Computer Science</p>
+          </div>
+
+          <div class="svs-specs-list">
+            <div class="spec-row">
+              <span class="spec-k">Status:</span>
+              <span class="spec-v text-emerald">Available for Projects</span>
             </div>
-            <div class="c1">
-              <h3><i class="fa-solid fa-folder-open"></i> Projects & Growth</h3>
-              <p>15+ High-Performance Projects & API integrations</p>
+            <div class="spec-row">
+              <span class="spec-k">Specialty:</span>
+              <span class="spec-v">Full Stack + AEO/GEO</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-k">Base:</span>
+              <span class="spec-v">Lucknow, Uttar Pradesh</span>
             </div>
           </div>
         </div>
-        <img src="images/nw.png" alt="Samradh Vikram Srivastava (Samradh Srivastava) - Professional Portrait"
-          class="pfp" loading="lazy" decoding="async">
+
+        <!-- What Drives Me: Languages (Span 4 cols) -->
+        <div class="bento-card bento-drive-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="bento-card-header">
+            <span class="bento-mono-tag"><i class="fa-solid fa-code"></i> LANGUAGES &amp; DEV</span>
+            <span class="drive-icon-pill"><i class="fa-brands fa-react"></i></span>
+          </div>
+          <h4>Modern JavaScript Ecosystem</h4>
+          <p>React 18+, Next.js App Router, TypeScript, Node.js, Express, and MongoDB for scalable reactive web systems.</p>
+          <div class="drive-tags">
+            <span>React</span><span>Next.js</span><span>Node.js</span><span>TypeScript</span><span>MongoDB</span>
+          </div>
+        </div>
+
+        <!-- What Drives Me: Education (Span 4 cols) -->
+        <div class="bento-card bento-drive-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="bento-card-header">
+            <span class="bento-mono-tag"><i class="fa-solid fa-graduation-cap"></i> ACADEMIC RIGOR</span>
+            <span class="drive-icon-pill"><i class="fa-solid fa-book-open"></i></span>
+          </div>
+          <h4>B.Tech in Computer Science</h4>
+          <p>Deep foundational study in Algorithms, Data Structures, Operating Systems, Computer Networks, and Database Architecture.</p>
+          <div class="drive-tags">
+            <span>CS Theory</span><span>Algorithms</span><span>Architecture</span><span>Networking</span>
+          </div>
+        </div>
+
+        <!-- What Drives Me: Impact (Span 4 cols) -->
+        <div class="bento-card bento-drive-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="bento-card-header">
+            <span class="bento-mono-tag"><i class="fa-solid fa-rocket"></i> REAL-WORLD IMPACT</span>
+            <span class="drive-icon-pill"><i class="fa-solid fa-trophy"></i></span>
+          </div>
+          <h4>Production Deployments</h4>
+          <p>Engineered multi-branch academy systems, gyms, real-estate platforms, and high-converting marketing infrastructure.</p>
+          <div class="drive-tags">
+            <span>Offline-First</span><span>Enterprise</span><span>Supabase</span><span>API Integrations</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -441,51 +640,51 @@
       </div>
 
       <div class="services-container" style="margin-top: 30px;">
-        <div class="service-card" data-tilt>
+        <div class="service-card">
           <div style="font-size: 3rem; margin-bottom: 15px;">🧠</div>
           <h3>Full Stack Development</h3>
           <p>Building responsive, scalable applications from frontend to backend with high-performance rendering.</p>
         </div>
 
-        <div class="service-card" data-tilt>
+        <div class="service-card">
           <div style="font-size: 3rem; margin-bottom: 15px;">📈</div>
           <h3>SEO + AEO + GEO</h3>
           <p>Optimizing products for Google, AI search systems, and generative answer engines to ensure discoverability.
           </p>
         </div>
 
-        <div class="service-card" data-tilt>
+        <div class="service-card">
           <div style="font-size: 3rem; margin-bottom: 15px;">🔗</div>
           <h3>API Integrations</h3>
           <p>REST APIs, complex authentication systems, webhooks, and third-party service connections.</p>
         </div>
 
-        <div class="service-card" data-tilt>
+        <div class="service-card">
           <div style="font-size: 3rem; margin-bottom: 15px;">✉</div>
           <h3>Email Automation</h3>
           <p>Seamlessly integrated email systems (like Resend) for transactional mail, alerts, and customer workflows.
           </p>
         </div>
 
-        <div class="service-card" data-tilt>
+        <div class="service-card">
           <div style="font-size: 3rem; margin-bottom: 15px;">⚡</div>
           <h3>Performance Optimization</h3>
           <p>Improving loading speed, technical SEO, core web vitals, and overall user experience metrics.</p>
         </div>
 
-        <div class="service-card" data-tilt>
+        <div class="service-card">
           <div style="font-size: 3rem; margin-bottom: 15px;">🤖</div>
           <h3>AI Integrations</h3>
           <p>Leveraging state-of-the-art AI APIs and agentic workflows to build smarter, self-improving web tools.</p>
         </div>
 
-        <div class="service-card" data-tilt>
+        <div class="service-card">
           <div style="font-size: 3rem; margin-bottom: 15px;">🗄️</div>
           <h3>Database Architecture</h3>
           <p>Designing scalable, high-availability schema architectures using SQL and NoSQL database systems.</p>
         </div>
 
-        <div class="service-card" data-tilt>
+        <div class="service-card">
           <div style="font-size: 3rem; margin-bottom: 15px;">☁️</div>
           <h3>Cloud Infrastructure</h3>
           <p>Deploying and managing robust serverless and edge-optimized environments for continuous delivery.</p>
@@ -536,7 +735,7 @@
 
         <div class="tech-grid">
           <!-- Frontend -->
-          <div class="tech-card" data-tilt>
+          <div class="tech-card">
             <div class="tech-title"><i class="fa-solid fa-laptop-code"></i> Frontend</div>
             <div class="tech-badges">
               <span class="tech-badge">React</span>
@@ -547,7 +746,7 @@
           </div>
 
           <!-- Backend -->
-          <div class="tech-card" data-tilt>
+          <div class="tech-card">
             <div class="tech-title"><i class="fa-solid fa-server"></i> Backend</div>
             <div class="tech-badges">
               <span class="tech-badge">Node.js</span>
@@ -558,7 +757,7 @@
           </div>
 
           <!-- Integrations -->
-          <div class="tech-card" data-tilt>
+          <div class="tech-card">
             <div class="tech-title"><i class="fa-solid fa-link"></i> Integrations</div>
             <div class="tech-badges">
               <span class="tech-badge">REST APIs</span>
@@ -569,7 +768,7 @@
           </div>
 
           <!-- Growth -->
-          <div class="tech-card" data-tilt>
+          <div class="tech-card">
             <div class="tech-title"><i class="fa-solid fa-chart-line"></i> Growth</div>
             <div class="tech-badges">
               <span class="tech-badge">SEO</span>
@@ -580,7 +779,7 @@
           </div>
 
           <!-- Deployment -->
-          <div class="tech-card" data-tilt>
+          <div class="tech-card">
             <div class="tech-title"><i class="fa-solid fa-cloud-arrow-up"></i> Deployment</div>
             <div class="tech-badges">
               <span class="tech-badge">GitHub</span>
@@ -590,7 +789,7 @@
           </div>
 
           <!-- Database -->
-          <div class="tech-card" data-tilt>
+          <div class="tech-card">
             <div class="tech-title"><i class="fa-solid fa-database"></i> Database</div>
             <div class="tech-badges">
               <span class="tech-badge">PostgreSQL</span>
@@ -601,7 +800,7 @@
           </div>
 
           <!-- Design -->
-          <div class="tech-card" data-tilt>
+          <div class="tech-card">
             <div class="tech-title"><i class="fa-solid fa-pen-nib"></i> Design</div>
             <div class="tech-badges">
               <span class="tech-badge">Figma</span>
@@ -612,7 +811,7 @@
           </div>
 
           <!-- Tools -->
-          <div class="tech-card" data-tilt>
+          <div class="tech-card">
             <div class="tech-title"><i class="fa-solid fa-toolbox"></i> Tools</div>
             <div class="tech-badges">
               <span class="tech-badge">Postman</span>
@@ -633,10 +832,27 @@
         <p class="about-text">A rigorous showcase of full-stack engineering, third-party API integrations, and growth
           systems with quantifiable real-world outcomes.</p>
       </div>
+
+      <!-- Spatial Bento Filter Controls -->
+      <div class="project-filter-bar" data-aos="fade-up">
+        <button type="button" class="project-filter-btn active" data-filter="all">
+          <i class="fa-solid fa-layer-group"></i> All Case Studies
+        </button>
+        <button type="button" class="project-filter-btn" data-filter="offline">
+          <i class="fa-solid fa-hard-drive"></i> Offline-First &amp; Desktop
+        </button>
+        <button type="button" class="project-filter-btn" data-filter="web">
+          <i class="fa-solid fa-globe"></i> Web Platforms
+        </button>
+        <button type="button" class="project-filter-btn" data-filter="seo">
+          <i class="fa-solid fa-chart-line"></i> Growth &amp; SEO Architecture
+        </button>
+      </div>
+
       <div class="projects-container">
 
         <!-- PFDA Academy Management System -->
-        <div class="project-card case-study-card">
+        <div class="project-card case-study-card bento-case-study" data-category="offline web">
           <img src="images/pfda.jpeg" alt="PFDA Academy Management System" loading="lazy" decoding="async">
           <h3>PFDA Academy Management System</h3>
 
@@ -678,7 +894,7 @@
         </div>
 
         <!-- BFC Gym Management App -->
-        <div class="project-card case-study-card">
+        <div class="project-card case-study-card bento-case-study" data-category="web">
           <img src="images/bfc.png" alt="BFC Gym Management App - Body Fitness Center, Lucknow" loading="lazy" decoding="async">
           <h3>BFC Gym Management App</h3>
 
@@ -720,7 +936,7 @@
         </div>
 
         <!-- Personal Developer Portfolio -->
-        <div class="project-card case-study-card">
+        <div class="project-card case-study-card bento-case-study" data-category="web seo">
           <img src="images/portfolio.png" alt="Samradh Vikram Srivastava - Personal Developer Portfolio" loading="lazy"
             decoding="async">
           <h3>Personal Developer Portfolio</h3>
@@ -764,7 +980,7 @@
         </div>
 
         <!-- Real Estate Premium -->
-        <div class="project-card case-study-card">
+        <div class="project-card case-study-card bento-case-study" data-category="web">
           <img src="images/pbd.png" alt="Real Estate Premium - PBD Group Web Platform" loading="lazy" decoding="async">
           <h3>Real Estate Premium</h3>
 
@@ -805,7 +1021,7 @@
         </div>
 
         <!-- Pathfinder Defence Academy -->
-        <div class="project-card case-study-card">
+        <div class="project-card case-study-card bento-case-study" data-category="web seo">
           <img src="images/pfda-web.png" alt="Pathfinder Defence Academy Official Website" loading="lazy" decoding="async">
           <h3>Pathfinder Defence Academy</h3>
 
@@ -846,7 +1062,7 @@
         </div>
 
         <!-- Dental Care -->
-        <div class="project-card case-study-card">
+        <div class="project-card case-study-card bento-case-study" data-category="web seo">
           <img src="images/ld.png" alt="Dental Care" loading="lazy" decoding="async">
           <h3>Dental Care Clinic</h3>
 
@@ -895,7 +1111,7 @@
         <div class="timeline-item" data-aos="fade-up">
           <div class="timeline-dot"></div>
           <div class="timeline-date">2026 — Present</div>
-          <div class="timeline-content" data-tilt>
+          <div class="timeline-content">
             <h3>Full Stack Developer & Growth Systems Architect</h3>
             <p class="timeline-role">Freelance & Contract Work</p>
             <ul class="timeline-details">
@@ -914,7 +1130,7 @@
         <div class="timeline-item" data-aos="fade-up">
           <div class="timeline-dot"></div>
           <div class="timeline-date">2025 — 2026</div>
-          <div class="timeline-content" data-tilt>
+          <div class="timeline-content">
             <h3>Frontend Developer</h3>
             <p class="timeline-role">Professional Development</p>
             <ul class="timeline-details">
@@ -931,7 +1147,7 @@
         <div class="timeline-item" data-aos="fade-up">
           <div class="timeline-dot"></div>
           <div class="timeline-date">2024 — 2025</div>
-          <div class="timeline-content" data-tilt>
+          <div class="timeline-content">
             <h3>Junior Web Developer</h3>
             <p class="timeline-role">Internship & Projects</p>
             <ul class="timeline-details">
@@ -947,7 +1163,7 @@
         <div class="timeline-item" data-aos="fade-up">
           <div class="timeline-dot"></div>
           <div class="timeline-date">2023 — 2024</div>
-          <div class="timeline-content" data-tilt>
+          <div class="timeline-content">
             <h3>Open Source Contributor & Student</h3>
             <p class="timeline-role">Foundational Experience</p>
             <ul class="timeline-details">
@@ -973,20 +1189,20 @@
             practices.</p>
         </div>
         <div class="seo-grid">
-          <div class="seo-card" data-aos="fade-up" data-tilt>
+          <div class="seo-card" data-aos="fade-up">
             <div class="seo-icon"><i class="fa-solid fa-sitemap"></i></div>
             <h3>Structured Data</h3>
             <p>Schema.org integrations that help crawlers and AI search platforms parse application context accurately.
             </p>
           </div>
 
-          <div class="seo-card" data-aos="fade-up" data-tilt>
+          <div class="seo-card" data-aos="fade-up">
             <div class="seo-icon"><i class="fa-solid fa-gears"></i></div>
             <h3>Technical SEO</h3>
             <p>Robots.txt, dynamic XML sitemaps, server-side rendering, and clean DOM hierarchy optimization.</p>
           </div>
 
-          <div class="seo-card" data-aos="fade-up" data-tilt>
+          <div class="seo-card" data-aos="fade-up">
             <div class="seo-icon"><i class="fa-solid fa-robot"></i></div>
             <h3>AI Search Optimization</h3>
             <p>Optimizing page structures specifically to rank as citations inside OpenAI ChatGPT, Perplexity, and
@@ -994,13 +1210,13 @@
               Gemini.</p>
           </div>
 
-          <div class="seo-card" data-aos="fade-up" data-tilt>
+          <div class="seo-card" data-aos="fade-up">
             <div class="seo-icon"><i class="fa-solid fa-eye"></i></div>
             <h3>Content Discoverability</h3>
             <p>Semantic structuring, high-quality intent mapping, and digital foot-printing across modern engines.</p>
           </div>
 
-          <div class="seo-card" data-aos="fade-up" data-tilt>
+          <div class="seo-card" data-aos="fade-up">
             <div class="seo-icon"><i class="fa-solid fa-gauge-high"></i></div>
             <h3>Performance Optimization</h3>
             <p>Core Web Vitals tuning, immediate Time-To-Interactive, and ultra-high compression for instant load speed.
@@ -1016,27 +1232,27 @@
       <h1>Proven Engineering Impact</h1>
       <hr>
       <div class="metrics-grid">
-        <div class="metric-card" data-aos="zoom-in" data-tilt>
+        <div class="metric-card" data-aos="zoom-in">
           <h2 class="metric-num" data-target="15">0</h2><span
             style="font-size: 2.5rem; font-weight: 800; font-family: Montserrat; color: #ff3366;">+</span>
           <p class="metric-label">Projects Built</p>
         </div>
-        <div class="metric-card" data-aos="zoom-in" data-tilt>
+        <div class="metric-card" data-aos="zoom-in">
           <h2 class="metric-num" data-target="5">0</h2><span
             style="font-size: 2.5rem; font-weight: 800; font-family: Montserrat; color: #ff3366;">+</span>
           <p class="metric-label">API Integrations</p>
         </div>
-        <div class="metric-card" data-aos="zoom-in" data-tilt>
+        <div class="metric-card" data-aos="zoom-in">
           <h2 class="metric-num" data-target="1000">0</h2><span
             style="font-size: 2.5rem; font-weight: 800; font-family: Montserrat; color: #ff3366;">+</span>
           <p class="metric-label">Users Reached</p>
         </div>
-        <div class="metric-card" data-aos="zoom-in" data-tilt>
+        <div class="metric-card" data-aos="zoom-in">
           <h2 class="metric-num" data-target="95">0</h2><span
             style="font-size: 2.5rem; font-weight: 800; font-family: Montserrat; color: #ff3366;">+</span>
           <p class="metric-label">Lighthouse Scores</p>
         </div>
-        <div class="metric-card" data-aos="zoom-in" data-tilt>
+        <div class="metric-card" data-aos="zoom-in">
           <h2 class="metric-num" data-target="3">0</h2><span
             style="font-size: 2.5rem; font-weight: 800; font-family: Montserrat; color: #ff3366;">+</span>
           <p class="metric-label">Automation Workflows</p>
@@ -1056,7 +1272,7 @@
           </p>
 
           <!-- Currently Exploring Block -->
-          <div class="exploring-card" data-tilt>
+          <div class="exploring-card">
             <div class="exploring-header">
               <i class="fa-solid fa-compass fa-spin"></i> Currently Exploring:
             </div>
@@ -1188,7 +1404,7 @@
 
   <!-- Custom Glassmorphic Confirmation Modal -->
   <div id="redirect-modal" class="modal-overlay">
-    <div class="modal-content" data-tilt>
+    <div class="modal-content">
       <div class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></div>
       <div class="modal-icon"><i class="fa-solid fa-paper-plane animate-bounce"></i></div>
       <h3>Let's Connect!</h3>
@@ -1207,6 +1423,7 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script src="spatial-canvas.js"></script>
   <script src="main.js"></script>
 </body>
 
