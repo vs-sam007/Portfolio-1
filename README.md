@@ -3,7 +3,7 @@
 
 ### Building ideas into products using AI, Web Development & Creative Engineering
 
-🌐 Live Demo: https://new-portfolio001.netlify.app/  
+🌐 Live : https://samradh-srivastava.netlify.app/ 
 💻 GitHub: https://github.com/vs-sam007/Portfolio-1
 
 
